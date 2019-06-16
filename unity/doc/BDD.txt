@@ -1,0 +1,50 @@
+Software Quality Begins in Specification
+
+Your PO, Business Analyst or Customer sends you an email requesting and explaining how the withdrawal works:
+
+See the following user story:
+
+Story: Cash Out
+    Being a client who is an account holder of Ninja Bank
+    Can I cash out
+    So that I can buy in places that do not accept debit or credit. (even being in the 21st century hahaha)
+
+There are 3 key points that are fundamental in the user stories, they are:
+- Who? To whom we are developing the functionality.
+- What? A brief description of the functionality itself.
+- Because? The reason the customer needs this feature. If possible citing the business gain.
+
+Usually to answer the three questions quoted above we use the GIVEN... CAN I ... SO THAT ...
+
+
+How test it?
+Example:
+
+Scenario: Cash out
+    Given that I have $1000 in my checking account
+    When I make a drawing of $200
+    Then my final balance should be $800
+
+Notice that in the previous scenario we used or "Given" to indicate the current, "when" to indicate the action of the user, and "Then" to indicate how the software will react.
+
+Also use the "E" and "BUT" to create even richer test scenarios.
+
+Scenario: It's bad I do not have a balance
+    Given that I have$0 in my checking account
+    When I make a $100 cashout
+    Then I see a message "Not enough balance to withdraw :("
+    And my final balance should be $0
+
+Scenario: I have balance but not enough
+    Given that I have $500 in my checking account
+    When I get a free kick of $501
+    Then I see a message "Not enough balance to withdraw :("
+    And my final balance should be $500
+
+Scenario: Threshold for service
+    Given that I have $ 1000 in my checking account
+    When I get a free kick of $701
+    Then I see the message "Maximum limit per service is $ 700"
+    And my final balance should be $1000
+
+Important: You can not withdraw to receive the necessary information. You can be a user of some type of test that can be performed so a user story can be well tested.

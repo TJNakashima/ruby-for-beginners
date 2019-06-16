@@ -1,0 +1,14 @@
+1) Run: bundle init
+
+2) Update Gemfile:
+source "https://rubygems.org"
+
+gem "rspec"
+
+3) Run: bundle install
+
+4) Run: rspec --version
+
+5) Run: rspec --init
+
+6) Run test: rspec -fd

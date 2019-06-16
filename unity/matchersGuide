@@ -1,0 +1,107 @@
+A matcher in RSpec is an object to check the behavior expected in our test. It is used to mount an expectation of RSpec in two different ways:
+expect(actual).to matcher(expected)
+expect(actual).to_not matcher(expected)
+
+Example:
+expect(1).to eq(1)
+expect(1).to_not eq(2
+
+The RSpec comes with many built-in matchers to help us write expressive tests. Let's take a look at them, starting with the most basic, the "be matchers".
+
+* Matchers related with truthy e falsy *
+Be matchers are for you to test whether an object evaluates to true or false. You can use them as follows:
+
+# pass if obj is truthy (not nil or not false)
+expect (obj).to be_true
+
+# pass if obj is false (nil or false)
+expect (obj).to be_false
+
+pass if obj is nil
+expect (obj).to be_nil
+
+# pass if obj is truthy (not nil and not false)
+expect (obj).to be
+
+* The Equity Matchers *
+
+Equality matchers are used to verify that one object is equal to another object. There is more than one matcher for this type of verification because in Ruby there is more than one way to check the fairness between two objects, which are as follows:
+#becomes equal? ​​(b)
+expect (a).to equal (b) 
+
+#becomes equal? ​​(b)
+expect (a).to be (b) 
+
+#pass if a.eql? (b)
+expect (a).to eql (b) 
+
+#pass if a == b
+expect (a).to eq (b) 
+
+* Matchers related to arrays *
+
+RSpec offers us some specific matchers for checking arrays. The first is MatchArray. This matcher is used to check if an array is "equal" to another, regardless of the order of its elements. Here's an example of using this matcher:
+
+array = [1, 2, 3, 4]
+
+expect(array).to match_array([1, 2, 3, 4])
+expect(array).to match_array([4, 3, 2, 1])
+
+expect(array).not_to match_array([1, 2, 3])
+expect(array).not_to match_array([1, 2, 3, 4, 5])
+
+Another matcher related to checking arrays is the Include Matcher. You can use it to check the membership relationship between one or more elements and a given array. Here is an example of usage:
+
+array = [1, 2, 3, 4]
+
+expect(array).to include(1)
+expect(array).to include(1, 2, 3)
+expect(array).to include(1, 2, 3, 4)
+
+expect(array).not_to include(0)
+expect(array).not_to include(5)
+expect(array).not_to include(5, 6, 7, 8)
+expect(array).not_to include([1, 2, 3, 4])
+
+Finally, there are also start_with and end_with matchers that serve to check if an array begins or ends with a sequence of elements. Here is an example of using these array = [1, 2, 3, 4]:
+
+array = [1, 2, 3, 4]
+
+expect(array).to start_with(1)
+expect(array).to start_with(1, 2)
+expect(array).not_to start_with(2)
+
+expect(array).to end_with(4)
+expect(array).to end_with(3, 4)
+expect(array).not_to end_with(3)
+
+* Matchers related to strings *
+
+RSpec offers some matchers related to strings, some of which are the same ones used to check arrays. Let's start by looking at Match Matcher, which is used to check the value of a string according to a regular expression:
+
+string = "qa ninja"
+
+expect (string).to match(/ qa /)
+expect (string).to match(/ inja /)
+
+expect (string).not_to match(/ ka /)
+expect (string).not_to match(/ qaninja /)
+Now follow examples of matchers used by strings and arrays, starting with include:
+
+string = "qa ninja"
+
+expect (string).to include("q")
+expect (string).to include("qa")
+expect (string).to include("qa", "ninja")
+
+expect (string).not_to include("ka")
+expect (string).not_to include("ninjas")
+Finally, you can also use the start_with and end_with matchers with strings:
+
+string = "qa ninja"
+
+expect(string).to start_with("qa")
+expect(string).not_to start_with("ninja")
+
+expect(string).to end_with("ninja")
+expect(string).not_to end_with("qa")
