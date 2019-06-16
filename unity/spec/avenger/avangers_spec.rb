@@ -1,4 +1,4 @@
-require_relative '../app/avenger'
+require_relative '../../app/avenger'
 
 #TDD
 describe AvengerHeadQuarter do
