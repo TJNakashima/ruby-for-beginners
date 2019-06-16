@@ -11,4 +11,7 @@ gem "rspec"
 
 5) Run: rspec --init
 
-6) Run test: rspec -fd
+6) Run test: rspec featureFile.rd -fd
+hmtl report: rspec featureFile.rd --format html --out report.html
+or
+rspec --format RspecJunitFormatter --out report.xml
